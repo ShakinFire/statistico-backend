@@ -1,0 +1,46 @@
+<div class="navigation-wrapper global-wrapper">
+    <div class="navigation-wrapper__logo-wrapper">
+        <div (click)="redirectToHome()">
+            <img class="logo"
+                src="../../assets/img/statistico-logo.png" />
+        </div>
+        <div>
+            <h3>Statistico</h3>
+        </div>
+    </div>
+
+    <div class="navigation-wrapper__menu-button-wrapper"
+        *ngIf="currentUser">
+        <button mat-icon-button
+            [matMenuTriggerFor]="menu"
+            aria-label="Example icon-button with a menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu"
+            xPosition="before">
+            <button mat-menu-item
+                (click)="redirectToProfile()">
+                <span>Me</span>
+            </button>
+            <button mat-menu-item>
+                <span>placeholder_2</span>
+            </button>
+            <button mat-menu-item
+                (click)="logout()">
+                <span>Logout</span>
+            </button>
+        </mat-menu>
+    </div>
+
+    <div *ngIf="!currentUser">
+        <div class="login-register-wrapper">
+            <div class="sign-in" (click)="redirectAuth(0)">
+                Sign in
+            </div>
+            <div class="sign-up" (click)="redirectAuth(1)">
+                Sign up
+            </div>
+        </div>
+    </div>
+</div>

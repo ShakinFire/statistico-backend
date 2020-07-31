@@ -1,0 +1,40 @@
+<div class="sign-in-wrapper">
+
+    <div *ngIf="errorMessage" class="error-wrapper">
+        <span>Error</span>
+        <p>{{ errorMessage }}</p>
+    </div>
+
+    <form class="sign-in-form" [formGroup]="signInForm">
+        <mat-form-field>
+            <mat-label>Username</mat-label>
+            <input formControlName="username"
+                matInput
+                type="text">
+            <mat-error *ngIf="signInForm.controls.username?.errors?.required">
+                Username is required.
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input formControlName="password"
+                matInput
+                type="password"
+                placeholder="password">
+            <mat-error *ngIf="signInForm.controls.password?.errors?.required">
+                Password is required.
+            </mat-error>
+        </mat-form-field>
+
+        <button class="create-btn"
+            mat-raised-button
+            cdkFocusInitial
+            color="primary"
+            [disabled]="!signInForm.valid"
+            (click)="handleLogin()">
+            Log in
+        </button>
+    </form>
+
+</div>

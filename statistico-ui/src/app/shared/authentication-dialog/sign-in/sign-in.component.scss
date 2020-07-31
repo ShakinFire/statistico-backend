@@ -1,0 +1,30 @@
+@import '../../../../assets/scss/variables';
+
+$module: 'sign-in-wrapper';
+
+.#{$module} {
+    .sign-in-form {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+    }
+
+    .error-wrapper {
+        display: flex;
+        padding: 10px 5px;
+        margin: 10px 0 5px 0;
+        background: $color-error-light;
+        border: 1px solid $color-error-dark;
+        border-radius: 5px;
+
+        span {
+            margin-right: 8px;
+            color: $color-error-dark;
+            font-weight: bold;
+        }
+
+        p {
+            color: $color-main-white;
+        }
+    }
+}

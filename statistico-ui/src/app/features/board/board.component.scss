@@ -1,0 +1,111 @@
+@import '../../../assets/scss/variables';
+
+$module: 'board-wrapper';
+
+.#{$module} {
+    .overview-wrapper {
+        display: flex;
+        padding: 10px;
+        border-radius: 0.25rem;
+        border: 1px solid #cbd5e0;
+    }
+
+    .overview-counter-wrapper {
+        width: 100%;
+        display: flex;
+    }
+
+    .overview-confirmed, .overview-recovered, .overview-deaths {
+        width: 33.33%;
+        border-radius: .25rem;
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+    }
+
+    .overview-confirmed {
+        color: #e53e3e;
+
+        .counter-label-number {
+            background-color: #fff5f5;
+        }
+
+        .counter-label-word {
+            background-color: #fed7d7;
+        }
+    }
+
+    .overview-recovered {
+        color: #38a169;
+        margin: 0 8px;
+
+        .counter-label-number {
+            background-color: #f0fff4;
+        }
+
+        .counter-label-word {
+            background-color: #c6f6d5;
+        }
+    }
+
+    .overview-deaths {
+        color: #718096;
+
+        .counter-label-number {
+            background-color: #edf2f7;
+        }
+
+        .counter-label-word {
+            background-color: #e2e8f0;
+        }
+    }
+
+    .counter-label {
+        text-align: center;
+    }
+
+    .counter-label-number {
+        padding-top: 8px;
+        font-size: 1.875rem;
+    }
+
+    .counter-label-word {
+        padding: 4px 0;
+        font-size: 1rem;
+    }
+
+    .spinner-wrapper {
+        display: flex;
+        justify-content: center;
+    }
+
+    .selected-country-wrapper {
+        span {
+            font-size: 16px;
+            font-weight: bold;
+        }
+    }
+
+    .countries-dropdown-wrapper {
+        margin: 0 20px 0 10px;
+    }
+}
+
+.country-option, .selected-country-wrapper {
+    display: flex;
+    align-items: center;
+
+    span {
+        margin-left: 5px;
+        font-size: 12px;
+    }
+
+    img {
+        width: 21px;
+        height: 16px;
+        object-fit: cover;
+    }
+
+    mat-icon {
+        margin: 0;
+        font-size: 21px;
+    }
+}

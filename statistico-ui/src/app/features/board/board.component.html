@@ -1,0 +1,75 @@
+<div class="board-wrapper">
+    <h1>COVID-19 CORONAVIRUS PANDEMIC</h1>
+    <div class="overview-wrapper">
+        <mat-form-field class="countries-dropdown-wrapper">
+            <mat-select [formControl]="countriesControl"
+                placeholder="Country"
+                #singleSelect
+                (selectionChange)="handleSelectionChange($event)">
+                <mat-select-trigger class="selected-country-wrapper">
+                    <mat-icon *ngIf="selectedValue?.Country === 'Global'">language</mat-icon>
+                    <img *ngIf="selectedValue?.Country !== 'Global'" [src]="selectedValueImageUrl">
+                    <span>{{ selectedValue?.Country }}</span>
+                </mat-select-trigger>
+                <mat-option>
+                    <ngx-mat-select-search placeholderLabel="Search" [formControl]="countriesFilterControl"></ngx-mat-select-search>
+                </mat-option>
+                <mat-option *ngFor="let country of countriesToList"
+                    [value]="country">
+                    <div class="country-option">
+                        <mat-icon *ngIf="country.Country === 'Global'">language</mat-icon>
+                        <img *ngIf="country.Country !== 'Global'" src="https://www.countryflags.io/{{country.CountryCode}}/flat/24.png">
+                        <span>{{ country.Country }}</span>
+                    </div>
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div class="overview-counter-wrapper">
+            <div class="overview-confirmed">
+                <div class="counter-label counter-label-number">
+                    <div *ngIf="!isLoaded"
+                        class="spinner-wrapper">
+                        <mat-spinner diameter="30"
+                            strokeWidth="2">
+                        </mat-spinner>
+                    </div>
+                    <span *ngIf="isLoaded">{{ selectedValue?.TotalConfirmed | number }}</span>
+                </div>
+                <div class="counter-label counter-label-word">
+                    Confirmed
+                </div>
+            </div>
+
+            <div class="overview-recovered">
+                <div class="counter-label counter-label-number">
+                    <div *ngIf="!isLoaded"
+                        class="spinner-wrapper">
+                        <mat-spinner diameter="30"
+                            strokeWidth="2">
+                        </mat-spinner>
+                    </div>
+                    <span *ngIf="isLoaded">{{ selectedValue?.TotalRecovered | number }}</span>
+                </div>
+                <div class="counter-label counter-label-word">
+                    Recovered
+                </div>
+            </div>
+
+            <div class="overview-deaths">
+                <div class="counter-label counter-label-number">
+                    <div *ngIf="!isLoaded"
+                        class="spinner-wrapper">
+                        <mat-spinner diameter="30"
+                            strokeWidth="2">
+                        </mat-spinner>
+                    </div>
+                    <span *ngIf="isLoaded">{{ selectedValue?.TotalDeaths | number }}</span>
+                </div>
+                <div class="counter-label counter-label-word">
+                    Deaths
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

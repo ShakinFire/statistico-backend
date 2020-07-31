@@ -1,0 +1,11 @@
+@import '../../../../assets/scss/variables';
+
+$module: 'sign-up-wrapper';
+
+.#{$module} {
+    .sign-up-form {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+    }
+}
